@@ -33,7 +33,8 @@ background-size: cover;
     height: 75px;
     justify-content: center;
     align-items: center;
-    float: left;
+    float: left; 
+    border-color: aqua;
    
 }
 #menu{
