@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doğum Günü Sayacı</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  #countdown {
+    font-size: 2em;
+  }
+</style>
+</head>
+<body>
+    <div id="menu">
+        <li><a href="uyg.html">SINAV</a></li>
+        <li>  <a href="index.html">Anasayfa   </a> </li>
+        <li> <a href="hakkımızda.html">Hakkımızda  </a></li>
+        <li><a href="iletisim.html">İletişim</a></li>
+        <li><a href="sayac.html"></a>SINAV2</li>
+
+    </div>
+<h1>Doğum Günü Sayacı</h1>
+<div id="countdown"></div>
+
+<script>
+  // Hedef doğum günü tarihini ayarla (yıl, ay, gün)
+  const targetDate = new Date("2024-08-07");
+
+  function calculateTimeLeft() {
+    const currentDate = new Date();
+    const difference = targetDate - currentDate;
+
+    if (difference > 0) {
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = `${days} gün ${hours} saat ${minutes} dakika ${seconds} saniye kaldı`;
+    } else {
+      document.getElementById("countdown").innerHTML = "Doğum günün kutlu olsun!";
+    }
+  }
+
+  // Her saniyede bir süreyi güncelle
+  setInterval(calculateTimeLeft, 1000);
+
+  // İlk yüklenme sırasında da hesaplayın
+  calculateTimeLeft();
+</script>
+</body>
+</html>
